@@ -153,6 +153,11 @@ const PostViewPage = () => {
     navigate(`/post-update/${postId}`);
   };
 
+  const handleAddNewPost = () => {
+    navigate("/post-create");
+  };
+
+
   return (
     <div style={styles.pageWrapper}>
       <Header />
@@ -162,6 +167,12 @@ const PostViewPage = () => {
           Explore posts from instructors and students. Enroll in courses, follow
           creators, and engage with content!
         </p>
+        <button 
+          onClick={handleAddNewPost}
+          style={styles.addPostButton}
+        >
+          + Add Post
+        </button>
       </div>
       {loading ? (
         <p style={styles.loadingText}>Loading posts...</p>
@@ -919,6 +930,29 @@ const styles = {
     '&:hover': {
       backgroundColor: '#c0392b',
     },
+  },
+
+  addPostButton: {
+    padding: '12px 24px',
+    backgroundColor: '#2ecc71',
+    color: 'white',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: '600',
+    marginTop: '20px',
+    transition: 'all 0.2s',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    '&:hover': {
+      backgroundColor: '#27ae60',
+      transform: 'translateY(-2px)',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
+    },
+    '&:active': {
+      transform: 'translateY(0)',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    }
   },
 };
 export default PostViewPage;
